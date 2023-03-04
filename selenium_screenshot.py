@@ -1,4 +1,4 @@
-def search_website():
+def take_screenshot():
     from selenium import webdriver
     import time
 
@@ -12,4 +12,4 @@ def search_website():
 
 
 if __name__ == '__main__':
-    search_website()
+    take_screenshot()
