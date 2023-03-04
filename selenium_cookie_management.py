@@ -3,13 +3,19 @@ def cookie_manager():
     import time
 
     driver = webdriver.Chrome()
-
     driver.get("https://www.lambdatest.com/")
-    driver.add_cookie({"name": "user", "domain": "lambdatest.com", "value": "automation_user"})
+    driver.add_cookie({"name": "user",
+                       "domain": "lambdatest.com",
+                       "value": "automation_user"})
     all_cookies = driver.get_cookies()
     for cookie in all_cookies:
         print(cookie)
 
+    driver.delete_all_cookies()
+    print("Post deletion")
+    all_cookies = driver.get_cookies()
+    for cookie in all_cookies:
+        print(cookie)
 
     time.sleep(4)
     driver.quit()
