@@ -7,19 +7,16 @@ def drag_and_drop():
     from selenium.webdriver.common.action_chains import ActionChains
 
     driver = webdriver.Chrome()
-    driver.get("https://www.lambdatest.com/")
+    driver.get("https://www.w3schools.com/html/html5_draganddrop.asp")
 
     # create action chain object
     action = ActionChains(driver)
 
     time.sleep(2)
-    # get element
-    element = driver.find_element(By.LINK_TEXT, "Enterprise")
-    # click on the link.
-    action.click(on_element=element)
 
-    # execute the action defined above
-    action.perform()
+    source_element = driver.find_element(By.ID, "div1")
+    target_element = driver.find_element(By.ID, "div2")
+    action.drag_and_drop(source_element, target_element).perform()
 
     time.sleep(2)
     driver.quit()
