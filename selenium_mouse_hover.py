@@ -14,7 +14,9 @@ def mouse_hover():
 
     time.sleep(2)
 
-    element = driver.find_element(By.XPATH, "//div[@class='inline-block dropdown desktop:block resource-dropdown']")
+    element = driver.find_element(By.XPATH, "//div[@class='inline-block "
+                                            "dropdown desktop:block "
+                                            "resource-dropdown']")
 
     action.move_to_element(element).perform()
 
