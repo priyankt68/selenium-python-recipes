@@ -43,7 +43,7 @@ def whatsapp_web():
     from selenium.webdriver.common.by import By
     from selenium.webdriver.common.action_chains import ActionChains
     driver = webdriver.Chrome()
-    
+
     driver.get("https://web.whatsapp.com/")
 
     # Download images and get their absolute paths stored here.
@@ -60,22 +60,30 @@ def whatsapp_web():
 
     # Send images one by one.
     for image in images_list:
-        print(image)
+        print("Sending image {}".format(image))
+
+        # Clicking on the "plus" button for attachment of any file.
         attachment_box = driver.find_element(By.XPATH,'//div[@title = "Attach"]')
         attachment_box.click()
 
         time.sleep(3)
 
+        # Selecting the file.
         image_box = driver.find_element(By.XPATH,
         '//input[@accept="image/*,video/mp4,video/3gpp,video/quicktime"]')
         image_box.send_keys(image)
 
         time.sleep(2)
 
+        # Clicking the green send button.
         send_button = driver.find_element(By.XPATH, '//span[@data-icon="send"]')
         send_button.click()
+
+        # allow sometime for sending this message. 
+        # NOTE - Tweak this time based on the network speed.
         time.sleep(5)
 
+    # can remove this if need to exit the driver immediately.
     time.sleep(1000)
 
     driver.quit()
