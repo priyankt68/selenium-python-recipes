@@ -90,5 +90,4 @@ def whatsapp_web():
 
 
 if __name__ == '__main__':
-    get_images(images)
     whatsapp_web()
